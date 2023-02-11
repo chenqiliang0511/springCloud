@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * 类的注释
+ * 用户类
  *
  * @author chenqiliang
  * @version 1.0
