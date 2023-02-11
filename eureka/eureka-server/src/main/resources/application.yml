@@ -1,0 +1,14 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: eureka-server
+eureka:
+  server:
+    eviction-interval-timer-in-ms: 10000 #踢出过期服务的检测时间周期
+    renewal-percent-threshold: 0.85 #超过多少比例服务器无心跳，服务全部保留不执行提出操作
+  instance:
+    hostname: localhost #实例地址名称或者ip
+    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port} #实例id
+    prefer-ip-address: true #显示真实的服务地址
+    lease-renewal-interval-in-seconds: 5 #发送心跳访问的时间间隔

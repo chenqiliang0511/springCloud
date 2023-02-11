@@ -1,0 +1,17 @@
+server:
+  port: 8762
+spring:
+  application:
+    name: eureka-client-a
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true #决定是否像指定地址注册服务
+    fetch-registry: true #决定是否从eureka-server拉取服务列表缓存
+    registry-fetch-interval-seconds: 10 #从eureka-server拉取服务列表的周期（值越大，脏读可能性越大，服务性能越好，两者不可兼得）
+  instance:
+    hostname: localhost
+    lease-renewal-interval-in-seconds: 5
+    prefer-ip-address: true
+    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}
